@@ -1,0 +1,7 @@
+E:\Projects\QandATest\QandATest.DomainEntities\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.deps.json
+E:\Projects\QandATest\QandATest.DomainEntities\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.dll
+E:\Projects\QandATest\QandATest.DomainEntities\obj\Debug\netcoreapp1.1\QandATest.DomainEntities.csprojResolveAssemblyReference.cache
+E:\Projects\QandATest\QandATest.DomainEntities\obj\Debug\netcoreapp1.1\QandATest.DomainEntities.AssemblyInfo.cs
+E:\Projects\QandATest\QandATest.DomainEntities\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.pdb
+E:\Projects\QandATest\QandATest.DomainEntities\obj\Debug\netcoreapp1.1\QandATest.DomainEntities.dll
+E:\Projects\QandATest\QandATest.DomainEntities\obj\Debug\netcoreapp1.1\QandATest.DomainEntities.pdb

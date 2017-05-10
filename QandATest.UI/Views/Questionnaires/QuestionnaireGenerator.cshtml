@@ -1,0 +1,114 @@
+﻿@using QandATest.DataAccess;
+@using QandATest.DomainEntities;
+@model Application
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Questionnaire";
+}
+
+<h2>Questionnaire</h2>
+
+@{ 
+    var questionnaire = ViewBag.Questionnaire as List<Questionnaire>;
+}
+
+<p>@questionnaire.FirstOrDefault().Advertisement.AdTitle</p>
+
+<form asp-action="Create" asp-controller="Applications" id="frm">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="AdId" />
+        <input type="hidden" asp-for="UserEmail" value="@UserManager.GetUserName(User)" />
+        <input type="hidden" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+        @foreach (var qn in questionnaire)
+        {
+            <div class="form-group">
+                <div class="col-md-10">
+                    <ul id="@qn.Order" data-isdependent="@qn.Question.IsDependent" style="list-style-type:none;margin:1em;padding:1em;display:@((qn.Question.IsDependent) ? "none" : "block");">
+                        @((qn.Question.QuestionTitle.EndsWith("?")) ? qn.Question.QuestionTitle : qn.Question.QuestionTitle + "?")
+                        @if (qn.Answers != null)
+                        {
+                            @foreach (var aw in qn.Answers)
+                            {
+                                <li style="color:Highlight">
+                                    @if (aw.AnswerTypeId == 1)  //Text
+                                    {
+                                        @((String.IsNullOrWhiteSpace(aw.AnswerText)) ? "" : aw.AnswerText)
+                                        <input type="text" id="txt@(Guid.NewGuid())" data-nextquestionorder="@aw.NextQuestion" data-questionorder="@qn.Order" name="txt@(qn.Question.Id)" onchange="refreshQuestionnaire(this.id);" class="form-control"/>
+                                    }
+                                    else if (aw.AnswerTypeId == 2) //Single-Option
+                                    {
+                                        <input type="radio" id="rbt@(Guid.NewGuid())" data-nextquestionorder="@aw.NextQuestion" data-questionorder="@qn.Order" name="rbt@(qn.Question.Id)" onchange="refreshQuestionnaire(this.id);" class="form-control"/>
+                                        @aw.AnswerText
+                                    }
+                                    else if (aw.AnswerTypeId == 3) //Multi-Options
+                                    {
+                                        <input type="checkbox" id="chk@(Guid.NewGuid())" data-nextquestionorder="@aw.NextQuestion" data-questionorder="@qn.Order" name="chk@(qn.Question.Id)" onchange="refreshQuestionnaire(this.id);" class="form-control"/>
+                                        @aw.AnswerText
+                                    }
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+         }
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+        </div>
+   </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    //$(document).ready(function () {
+    //    $('#frm').submit(function (e) {
+    //        e.preventDefault();
+
+    //        $.ajax({
+    //            type: 'POST',
+    //            url: '../Application/Create', // the script where you handle the form input.
+    //            data: $(this).serialize(), // serializes the form's elements.
+    //            success: function (data) {
+    //                alert(data);
+    //                //$('#divForm').css('display', 'none');
+    //                //$(loadData);
+    //            },
+    //            error: function (data) {
+    //                alert(data);
+    //            }
+    //        });
+    //    });
+    //});
+
+    function refreshQuestionnaire(id) {
+        var answer = document.getElementById(id);
+        var nextQuestionOrder = answer.getAttribute('data-nextquestionorder');
+        var questionOrder = answer.getAttribute('data-questionorder');
+        var question = document.getElementById(questionOrder);
+        var isQuestionDependent = question.getAttribute('data-isdependent');
+        var nextQuestion = document.getElementById(nextQuestionOrder);
+        var isNextQuestionDependent = nextQuestion.getAttribute('data-isdependent');
+
+        nextQuestion.style.display = 'block';
+        
+        var j = parseInt(questionOrder) + 1;
+        var k = parseInt(nextQuestionOrder); 
+        for (var i = j; i < k; i++) {
+            var q = document.getElementById(i);
+            var isDependent = q.getAttribute('data-isdependent');
+            if (isDependent == 'True') {
+                q.style.display = 'none';
+            }
+        }
+    }
+</script>

@@ -1,0 +1,53 @@
+﻿@using QandATest.DomainEntities;
+@model IEnumerable<Advertisement>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CooperationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerCompany)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CooperationType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployerCompany)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Advertisements" asp-route-id="@item.Id" class="btn btn-info" onclick="EditInfo(this.href)">Read more...</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

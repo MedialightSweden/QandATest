@@ -1,0 +1,7 @@
+E:\Projects\QandATest\QandATest.Services\bin\Debug\netcoreapp1.1\QandATest.Services.deps.json
+E:\Projects\QandATest\QandATest.Services\bin\Debug\netcoreapp1.1\QandATest.Services.dll
+E:\Projects\QandATest\QandATest.Services\bin\Debug\netcoreapp1.1\QandATest.Services.pdb
+E:\Projects\QandATest\QandATest.Services\obj\Debug\netcoreapp1.1\QandATest.Services.AssemblyInfo.cs
+E:\Projects\QandATest\QandATest.Services\obj\Debug\netcoreapp1.1\QandATest.Services.dll
+E:\Projects\QandATest\QandATest.Services\obj\Debug\netcoreapp1.1\QandATest.Services.pdb
+E:\Projects\QandATest\QandATest.Services\obj\Debug\netcoreapp1.1\QandATest.Services.csprojResolveAssemblyReference.cache

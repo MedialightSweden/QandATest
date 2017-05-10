@@ -1,0 +1,133 @@
+@using QandATest.DomainEntities;
+@model IEnumerable<Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Questions</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success" onclick="AddInfo(this.href);">Add</a>
+</p>
+
+<table class="table" id="tblList">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDependent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDependent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QType.QTypeTitle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning" onclick="EditInfo(this.href)">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="DeleteInfo(this.href)">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div id="divAdd" style="display:none;">
+
+    @Html.Partial("_QuestionAdd", new Question())
+
+</div>
+<div id="divEdit" style="display:none;">
+
+    @Html.Partial("_QuestionEdit", new Question())
+
+</div>
+
+<script type="text/javascript">
+    $('body').click(function (e) {
+        if ($(e.target).hasClass('btn btn-success') && $(e.target).text() == 'Add') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-primary') && $(e.target).text() == 'Cancel') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-warning') && $(e.target).text() == 'Edit') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-danger') && $(e.target).text() == 'Delete') {
+            e.preventDefault();
+        }
+    });
+
+    function AddInfo(url) {
+
+        $('#divAdd').css('display', 'block');
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                $('#divAdd').html(result);
+            },
+            error: function (response) {
+                alert('error: ' + response.error);
+            }
+        });
+
+        $(window).scrollTop($('#divAdd').offset().top);
+    }
+
+    function EditInfo(url) {
+
+        $('#divEdit').css('display', 'block');
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                $('#divEdit').html(result);
+            },
+            error: function (response) {
+                alert('error: ' + response.error);
+            }
+        });
+
+        $(window).scrollTop($('#divEdit').offset().top);
+    }
+    function DeleteInfo(url) {
+
+        if (confirm('Are you sure you want to delete?')) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'html',
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (response) {
+                    alert('error: ' + response.error);
+                }
+            });
+        }
+    }
+</script>

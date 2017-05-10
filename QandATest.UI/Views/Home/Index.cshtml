@@ -1,0 +1,72 @@
+﻿@using QandATest.DomainEntities;
+@model Advertisement
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="frmSearch" asp-action="SearchResult">
+    <div class="row">
+        <div class="col-sm-6" style="padding:20px;">
+            <input id="JobTitle" name="JobTitle" type="text" class="form-control" placeholder="Enter a job title to search..." />
+        </div>
+        <div class="col-sm-6" style="padding:20px;">
+            <input id="JobTitle" name="JobTitle" type="text" class="form-control" placeholder="Enter a job title to search..." />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" style="padding:20px;">
+            <input id="JobTitle" name="JobTitle" type="text" class="form-control" placeholder="Enter a job title to search..." />
+        </div>
+        <div class="col-sm-6" style="padding:20px;">
+            <input id="JobTitle" name="JobTitle" type="text" class="form-control" placeholder="Enter a job title to search..." />
+        </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-primary" onclick="searchResult();" />
+</form>
+<hr />
+
+
+<p id="parTitle" style="color:blue;display:none;"><strong>Advertisements:</strong></p>
+<div id="divSearchResult" style="display:none;">
+
+    
+
+    @Html.Partial("_AdvertisementList", new List<Advertisement>())
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#frmSearch').submit(function (e) {
+            e.preventDefault(e);
+        });
+    });
+
+    function searchResult() {
+
+        $('#divSearchResult').css('display', 'block');
+        $('#parTitle').css('display', 'block');
+
+        var url = $('#frmSearch').attr('action');
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                $('#divSearchResult').html(result);
+            },
+            error: function (response) {
+                alert('error: ' + response.error);
+            }
+        });
+
+        $(window).scrollTop($('#divSearchResult').offset().top);
+    }
+</script>
+
+
+
+
+

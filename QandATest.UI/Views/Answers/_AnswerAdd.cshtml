@@ -1,0 +1,40 @@
+﻿@using QandATest.DomainEntities;
+@model Answer
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="QuestionnaireId" value="@ViewBag.QuestionnaireId" />
+        <div class="form-group">
+            <label asp-for="AnswerTypeId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="AnswerTypeId" class="form-control" asp-items="ViewBag.AnswerTypeId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AnswerText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AnswerText" class="form-control" />
+                <span asp-validation-for="AnswerText" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NextQuestion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input type="text" asp-for="NextQuestion" class="form-control" />
+                <span asp-validation-for="NextQuestion" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary" onclick="$('#divAdd').css('display', 'none');">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

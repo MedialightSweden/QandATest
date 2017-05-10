@@ -1,0 +1,9 @@
+E:\Projects\QandATest\QandATest.Business\bin\Debug\netcoreapp1.1\QandATest.Business.deps.json
+E:\Projects\QandATest\QandATest.Business\bin\Debug\netcoreapp1.1\QandATest.Business.dll
+E:\Projects\QandATest\QandATest.Business\bin\Debug\netcoreapp1.1\QandATest.Business.pdb
+E:\Projects\QandATest\QandATest.Business\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.dll
+E:\Projects\QandATest\QandATest.Business\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.pdb
+E:\Projects\QandATest\QandATest.Business\obj\Debug\netcoreapp1.1\QandATest.Business.AssemblyInfo.cs
+E:\Projects\QandATest\QandATest.Business\obj\Debug\netcoreapp1.1\QandATest.Business.dll
+E:\Projects\QandATest\QandATest.Business\obj\Debug\netcoreapp1.1\QandATest.Business.pdb
+E:\Projects\QandATest\QandATest.Business\obj\Debug\netcoreapp1.1\QandATest.Business.csprojResolveAssemblyReference.cache

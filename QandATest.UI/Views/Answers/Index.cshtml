@@ -1,0 +1,137 @@
+@using QandATest.DomainEntities;
+@model IEnumerable<Answer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>@((Model == null || Model.Count() == 0) ? ViewBag.QuestionTitle : Model.FirstOrDefault().Questionnaire.Question.QuestionTitle)</p>
+<h2>Answers</h2>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success" asp-route-questionnaireid="@((Model == null || Model.Count() == 0) ? ViewBag.QuestionnaireId : Model.FirstOrDefault().Questionnaire.Id)" onclick="addInfo(this.href);">Add</a>
+    <a asp-action="Index" asp-controller="Questionnaires" asp-route-id="@((Model == null || Model.Count() == 0) ? ViewBag.AdId : Model.FirstOrDefault().Questionnaire.AdId)" class="btn btn-success">Go to Questionnaire</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextQuestion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerType.AnswerTypeText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextQuestion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning" onclick="editInfo(this.href)">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="deleteInfo(this.href)">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div id="divAdd" style="display:none;">
+
+    @Html.Partial("_AnswerAdd", new Answer())
+
+</div>
+<div id="divEdit" style="display:none;">
+
+    @Html.Partial("_AnswerEdit", new Answer())
+
+</div>
+
+<script type="text/javascript">
+
+    $('body').click(function (e) {
+        if ($(e.target).hasClass('btn btn-success') && $(e.target).text() == 'Add') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-primary') && $(e.target).text() == 'Cancel') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-warning') && $(e.target).text() == 'Edit') {
+            e.preventDefault();
+        }
+        else if ($(e.target).hasClass('btn btn-danger') && $(e.target).text() == 'Delete') {
+            e.preventDefault();
+        }
+        
+    });
+
+    function addInfo(url) {
+
+        $('#divAdd').css('display', 'block');
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                $('#divAdd').html(result);
+            },
+            error: function (response) {
+                alert('error: ' + response.error);
+            }
+        });
+
+        $(window).scrollTop($('#divAdd').offset().top);
+    }
+    function editInfo(url) {
+
+        $('#divEdit').css('display', 'block');
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'html',
+            success: function (result) {
+                $('#divEdit').html(result);
+            },
+            error: function (response) {
+                alert('error: ' + response.error);
+            }
+        });
+
+        $(window).scrollTop($('#divEdit').offset().top);
+    }
+    function deleteInfo(url) {
+
+        if (confirm('Are you sure you want to delete?')) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'html',
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (response) {
+                    alert('error: ' + response.error);
+                }
+            });
+        }
+    }
+
+</script>

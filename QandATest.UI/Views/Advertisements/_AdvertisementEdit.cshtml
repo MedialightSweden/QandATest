@@ -1,0 +1,104 @@
+﻿@using QandATest.DomainEntities;
+@model Advertisement
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="AdTitle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AdTitle" class="form-control" />
+                <span asp-validation-for="AdTitle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="JobTitle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerCompany" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerCompany" class="form-control" />
+                <span asp-validation-for="EmployerCompany" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Deadline" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Deadline" class="form-control" />
+                <span asp-validation-for="Deadline" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CooperationType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CooperationType" class="form-control" />
+                <span asp-validation-for="CooperationType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SkillDesc" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SkillDesc" class="form-control" />
+                <span asp-validation-for="SkillDesc" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DutyDesc" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DutyDesc" class="form-control" />
+                <span asp-validation-for="DutyDesc" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerDescription" class="form-control" />
+                <span asp-validation-for="EmployerDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerWebsite" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerWebsite" class="form-control" />
+                <span asp-validation-for="EmployerWebsite" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerEmail" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerEmail" class="form-control" />
+                <span asp-validation-for="EmployerEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerPhoneNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerPhoneNumber" class="form-control" />
+                <span asp-validation-for="EmployerPhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployerAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployerAddress" class="form-control" />
+                <span asp-validation-for="EmployerAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary" onclick="$('#divEdit').css('display', 'none');">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

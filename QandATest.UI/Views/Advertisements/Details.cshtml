@@ -1,0 +1,91 @@
+@using QandATest.DomainEntities;
+@model Advertisement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Advertisement Details</h2>
+<p><srong style="color:red;">@ViewBag.msg</srong></p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerCompany)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerCompany)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Deadline)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CooperationType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CooperationType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillDesc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SkillDesc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DutyDesc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DutyDesc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerWebsite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerWebsite)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerPhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerPhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployerAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="QuestionnaireGenerator" asp-controller="Questionnaires" asp-route-id="@Model.Id" class="btn btn-primary">Apply</a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Back</a>
+</div>

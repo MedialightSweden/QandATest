@@ -1,0 +1,16 @@
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.UI.deps.json
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.UI.runtimeconfig.json
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.UI.runtimeconfig.dev.json
+E:\Projects\QandATest\QandATest.UI\obj\Debug\netcoreapp1.1\QandATest.UI.csprojResolveAssemblyReference.cache
+E:\Projects\QandATest\QandATest.UI\obj\Debug\netcoreapp1.1\QandATest.UI.AssemblyInfo.cs
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.UI.dll
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.UI.pdb
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.DataAccess.dll
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.dll
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.Services.dll
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.DataAccess.pdb
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.pdb
+E:\Projects\QandATest\QandATest.UI\bin\Debug\netcoreapp1.1\QandATest.Services.pdb
+E:\Projects\QandATest\QandATest.UI\obj\Debug\netcoreapp1.1\QandATest.UI.dll
+E:\Projects\QandATest\QandATest.UI\obj\Debug\netcoreapp1.1\QandATest.UI.pdb
+E:\Projects\QandATest\QandATest.UI\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs

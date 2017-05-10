@@ -1,0 +1,9 @@
+E:\Projects\QandATest\QandATest.DataAccess\bin\Debug\netcoreapp1.1\QandATest.DataAccess.deps.json
+E:\Projects\QandATest\QandATest.DataAccess\bin\Debug\netcoreapp1.1\QandATest.DataAccess.dll
+E:\Projects\QandATest\QandATest.DataAccess\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.dll
+E:\Projects\QandATest\QandATest.DataAccess\bin\Debug\netcoreapp1.1\QandATest.DomainEntities.pdb
+E:\Projects\QandATest\QandATest.DataAccess\obj\Debug\netcoreapp1.1\QandATest.DataAccess.csprojResolveAssemblyReference.cache
+E:\Projects\QandATest\QandATest.DataAccess\obj\Debug\netcoreapp1.1\QandATest.DataAccess.AssemblyInfo.cs
+E:\Projects\QandATest\QandATest.DataAccess\bin\Debug\netcoreapp1.1\QandATest.DataAccess.pdb
+E:\Projects\QandATest\QandATest.DataAccess\obj\Debug\netcoreapp1.1\QandATest.DataAccess.dll
+E:\Projects\QandATest\QandATest.DataAccess\obj\Debug\netcoreapp1.1\QandATest.DataAccess.pdb
